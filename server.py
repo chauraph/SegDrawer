@@ -60,11 +60,11 @@ else:
     sam2_checkpoint = "sam2_hiera_tiny.pt"
     model_cfg = "sam2_hiera_t.yaml"
 
-    sam2_model = build_sam2(model_cfg, sam2_checkpoint, device="cuda")
+    sam2_model = build_sam2(model_cfg, sam2_checkpoint, device)
 
     predictor = SAM2ImagePredictor(sam2_model) # for single image
     
-    vid_predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint) # for video
+    vid_predictor = build_sam2_video_predictor(model_cfg, sam2_checkpoint, device) # for video
     inference_state = None
 
     mask_generator = SAM2AutomaticMaskGenerator(sam2_model) # seg_everything
